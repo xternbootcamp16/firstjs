@@ -1,0 +1,30 @@
+section > div {
+  width: 80%;
+  margin: 20px auto;
+}
+
+form {
+  margin-top: 50px;
+}
+
+.details > dl {
+  padding: 15px 10px;
+}
+
+.details > dl:nth-of-type(even) {
+  background-color: WhiteSmoke;
+}
+
+@media (min-width: 700px) {
+  section > div {
+    width: 60%;
+  }
+}
+
+@media (min-width: 900px) {
+  section > div {
+    float: left;
+    width: 40%;
+    margin: 20px 5%;
+  }
+}
