@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Baby's First JavaScript</title>
+  </head>
+  <body>
+    <section>
+      <div>
+        <form action="index.html" method="post">
+          <label for="name">Name</label>
+          <input type="text" name="name" placeholder="Please enter your name" required>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+
+      <div class="details">
+
+      </div>
+    </section>
+
+    <script type="text/javascript">
+      document.querySelector('form').onsubmit = function(ev) {
+        ev.preventDefault();
+        var details = document.querySelector('.details');
+        details.innerHTML = '<p>' + this.name.value + '</p>';
+      }
+    </script>
+  </body>
+</html>
