@@ -1,6 +1,9 @@
 $(document).foundation();
 
 var buildColorDiv = function(color) {
+  if (color === undefined) {
+    color = 'red';
+  }
   return '<div style="height: 100px; width: 100px; background-color: ' + color + '"></div>'
 };
 
