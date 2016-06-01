@@ -4,7 +4,7 @@ var buildColorDiv = function(color) {
   return '<div style="height: 100px; width: 100px; background-color: ' + color + '"></div>'
 };
 
-var buildList = function(listValues = {}) {
+var buildList = function(listValues) {
   return ' \
     <dl> \
       <dt>Name</dt> \
