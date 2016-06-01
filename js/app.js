@@ -8,20 +8,24 @@ var buildColorDiv = function(color) {
 };
 
 var buildList = function(listValues) {
-  return ' \
-    <dl> \
-      <dt>Name</dt> \
-      <dd>' + listValues.name + '</dd> \
-          \
-      <dt>Hair Color</dt> \
-      <dd>' + listValues.hairColor + '</dd> \
-        \
-      <dt>Age</dt> \
-      <dd>' + listValues.age + '</dd> \
-        \
-      <dt>Birthplace</dt> \
-      <dd>' + listValues.birthplace + '</dd> \
-    </dl>';
+  var dl = document.createElement('dl');
+  dl.style.border = '1px solid #ff0033';
+  dl.appendChild(buildListItem('Name', listValues.name));
+  dl.appendChild(buildListItem('Hair Color', listValues.hairColor));
+  dl.appendChild(buildListItem('Age', listValues.age));
+  dl.appendChild(buildListItem('Birthplace', listValues.birthplace));
+  return dl;
+};
+
+var buildListItem = function(term, definition) {
+  var li = document.createElement('li');
+  var dt = document.createElement('dt');
+  var dd = document.createElement('dd');
+  dt.innerHTML = term;
+  dd.innerHTML = definition;
+  li.appendChild(dt);
+  li.appendChild(dd);
+  return li;
 };
 
 var addValuesToDetails = function(ev) {
@@ -34,7 +38,7 @@ var addValuesToDetails = function(ev) {
     hairColor: buildColorDiv(this.hairColor.value)
   };
 
-  details.innerHTML += buildList(formValues);
+  details.appendChild(buildList(formValues));
 };
 
 document.querySelector('form').onsubmit = addValuesToDetails;

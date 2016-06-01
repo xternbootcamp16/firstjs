@@ -11,6 +11,10 @@ dl {
   padding: 15px 10px;
 }
 
+dl > li {
+  list-style: none;
+}
+
 dt, dd {
   display: inline-block;
   vertical-align: top;
