@@ -1,25 +1,29 @@
 $(document).foundation();
 
-(function () {
+var BasicForm = {
 
-  var buildColorDiv = function(color) {
+  init: function() {
+    document.querySelector('form').onsubmit = this.addValuesToDetails;
+  },
+
+  buildColorDiv: function(color) {
     if (color === undefined) {
       color = 'red';
     }
-    return '<div style="height: 100px; width: 100px; background-color: ' + color + '"></div>'
-  };
+    return '<div style="height: 100px; width: 100px; background-color: ' + color + '"></div>';
+  },
 
-  var buildList = function(listValues) {
+  buildList: function(listValues) {
     var dl = document.createElement('dl');
     dl.style.border = '1px solid #ff0033';
-    dl.appendChild(buildListItem('Name', listValues.name));
-    dl.appendChild(buildListItem('Hair Color', listValues.hairColor));
-    dl.appendChild(buildListItem('Age', listValues.age));
-    dl.appendChild(buildListItem('Birthplace', listValues.birthplace));
+    dl.appendChild(this.buildListItem('Name', listValues.name));
+    dl.appendChild(this.buildListItem('Hair Color', listValues.hairColor));
+    dl.appendChild(this.buildListItem('Age', listValues.age));
+    dl.appendChild(this.buildListItem('Birthplace', listValues.birthplace));
     return dl;
-  };
+  },
 
-  var buildListItem = function(term, definition) {
+  buildListItem: function(term, definition) {
     var li = document.createElement('li');
     var dt = document.createElement('dt');
     var dd = document.createElement('dd');
@@ -28,20 +32,20 @@ $(document).foundation();
     li.appendChild(dt);
     li.appendChild(dd);
     return li;
-  };
+  },
 
-  var addValuesToDetails = function(ev) {
+  addValuesToDetails: function(ev) {
     ev.preventDefault();
     var details = document.querySelector('.details');
     var formValues = {
       name: this.name.value,
       age: this.age.value,
       birthplace: this.birthplace.value,
-      hairColor: buildColorDiv(this.hairColor.value)
+      hairColor: BasicForm.buildColorDiv(this.hairColor.value)
     };
 
-    details.appendChild(buildList(formValues));
-  };
+    details.appendChild(BasicForm.buildList(formValues));
+  }
+};
 
-  document.querySelector('form').onsubmit = addValuesToDetails;
-})();
+BasicForm.init();
