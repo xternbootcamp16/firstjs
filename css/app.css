@@ -7,11 +7,17 @@ form {
   margin-top: 50px;
 }
 
-.details > dl {
+dl {
   padding: 15px 10px;
 }
 
-.details > dl:nth-of-type(even) {
+dt, dd {
+  display: inline-block;
+  vertical-align: top;
+  width: 48%;
+}
+
+dl:nth-of-type(even) {
   background-color: WhiteSmoke;
 }
 
@@ -24,7 +30,13 @@ form {
 @media (min-width: 900px) {
   section > div {
     float: left;
-    width: 40%;
     margin: 20px 5%;
+    width: 40%;
+  }
+
+  section::after {
+    clear: both;
+    content: "";
+    display: table;
   }
 }

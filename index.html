@@ -37,14 +37,5 @@
     <script src="js/vendor/what-input.js"></script>
     <script src="js/vendor/foundation.js"></script>
     <script src="js/app.js"></script>
-
-    <script type="text/javascript">
-      document.querySelector('form').onsubmit = function(ev) {
-        ev.preventDefault();
-        var details = document.querySelector('.details');
-        details.innerHTML += '<p>' + this.name.value + '</p>';
-        this.name.value = '';
-      }
-    </script>
   </body>
 </html>
